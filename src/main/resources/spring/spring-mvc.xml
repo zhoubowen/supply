@@ -23,8 +23,17 @@
     <mvc:annotation-driven/>
     <context:component-scan base-package="com.supply"/>
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/page/"/>
+        <property name="prefix" value="/page/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
+    <!--
+    静态资源解析
+    包括 ：js、css、img、..
+     -->
+    <mvc:resources location="/js/" mapping="/js/**"/>
+    <mvc:resources location="/img/" mapping="/img/**"/>
+    <mvc:resources location="/css/" mapping="/css/**"/>
+    <mvc:resources location="/bootstrap-3.3.7-dist/" mapping="/bootstrap-3.3.7-dist/**"/>
+
     <import resource="spring-mybatis.xml"/>
 </beans>
