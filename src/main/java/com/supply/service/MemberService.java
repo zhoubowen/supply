@@ -1,6 +1,7 @@
 package com.supply.service;
 
 import com.supply.entity.Member;
+import com.supply.exception.BusinessException;
 import com.supply.param.MemberQueryParam;
 import com.supply.util.PageUtil;
 
@@ -19,4 +20,6 @@ public interface MemberService {
     int add(Member member);
 
     int update(Member member);
+
+    Member login(Member member) throws BusinessException;
 }
