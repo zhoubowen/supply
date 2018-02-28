@@ -31,9 +31,8 @@
     包括 ：js、css、img、..
      -->
     <mvc:resources location="/js/" mapping="/js/**"/>
-    <mvc:resources location="/img/" mapping="/img/**"/>
+    <mvc:resources location="/image/" mapping="/image/**"/>
     <mvc:resources location="/css/" mapping="/css/**"/>
-    <mvc:resources location="/bootstrap-3.3.7-dist/" mapping="/bootstrap-3.3.7-dist/**"/>
 
     <import resource="spring-mybatis.xml"/>
 </beans>

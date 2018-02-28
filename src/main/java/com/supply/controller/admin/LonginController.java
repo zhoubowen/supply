@@ -19,20 +19,24 @@ public class LonginController {
     private MemberService memberService;
 
     @RequestMapping("/")
-    public String index(){
-        return "/admin/login";
+    public ModelAndView index(){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("msg", "asdfa");
+        modelAndView.setViewName("/admin/login");
+        return modelAndView;
     }
 
     @RequestMapping("login")
-    public String login(Member member){
+    public ModelAndView login(Member member){
+        ModelAndView modelAndView = new ModelAndView();
         try {
             memberService.login(member);
+            modelAndView.setViewName("/admin/index");
         } catch (BusinessException e) {
-            ModelAndView modelAndView = new ModelAndView();
             modelAndView.addObject("code", e.getCode());
             modelAndView.getModel().put("msg", e.getMsg());
-            return "error";
+            modelAndView.setViewName("error");
         }
-        return "/admin/index";
+        return modelAndView;
     }
 }
