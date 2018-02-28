@@ -24,6 +24,10 @@
     <link href="/css/fullcalendar.css" rel="stylesheet" type="text/css"/>
     <link href="/css/jqvmap.css" rel="stylesheet" type="text/css" media="screen"/>
     <link href="/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="/css/select2_metro.css" />
+    <link rel="stylesheet" href="/css/DT_bootstrap.css" />
+
+
     <link rel="shortcut icon" href="/image/favicon.ico"/>
 
 </head>

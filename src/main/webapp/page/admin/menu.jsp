@@ -12,9 +12,9 @@
                 <span class="selected"></span>
             </a>
             <ul class="sub-menu">
-                <li><a href="layout_horizontal_sidebar_menu.html">招商信息</a></li>
-                <li><a href="layout_horizontal_menu1.html">供求信息</a></li>
-                <li><a href="layout_horizontal_menu1.html">会员信息</a></li>
+                <li><a href="/admin/supply/index">招商信息</a></li>
+                <li><a href="/admin/supply/index">供求信息</a></li>
+                <li><a href="/admin/member/index">会员信息</a></li>
             </ul>
         </li>
 

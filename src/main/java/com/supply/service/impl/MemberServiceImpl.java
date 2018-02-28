@@ -51,7 +51,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public int update(Member member) {
-        return memberMapper.updateByPrimaryKey(member);
+        return memberMapper.updateByPrimaryKeySelective(member);
     }
 
     @Override
@@ -66,5 +66,10 @@ public class MemberServiceImpl implements MemberService {
         member.setPassword(MD5Util.EncoderByMd5(member.getPassword()));
         Member obj = memberMapper.selectOne(member);
         return Optional.ofNullable(obj).orElseThrow(() -> new BusinessException(ErrorCodeEnum.LOGIN_ERROR));
+    }
+
+    @Override
+    public Member findByMemberId(Integer memberId) {
+        return memberMapper.selectByPrimaryKey(memberId);
     }
 }

@@ -22,4 +22,6 @@ public interface MemberService {
     int update(Member member);
 
     Member login(Member member) throws BusinessException;
+
+    Member findByMemberId(Integer memberId);
 }
