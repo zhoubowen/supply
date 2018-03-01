@@ -15,6 +15,8 @@ public interface MemberService {
 
     List<Member> findAll();
 
+    List<Member> findAllForValid();
+
     List<Member> findForPage(MemberQueryParam memberQueryParam, PageUtil pageUtil);
 
     int add(Member member);

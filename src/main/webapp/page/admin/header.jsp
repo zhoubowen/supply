@@ -26,6 +26,7 @@
     <link href="/css/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" media="screen"/>
     <link rel="stylesheet" type="text/css" href="/css/select2_metro.css" />
     <link rel="stylesheet" href="/css/DT_bootstrap.css" />
+    <link href="/css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
 
 
     <link rel="shortcut icon" href="/image/favicon.ico"/>

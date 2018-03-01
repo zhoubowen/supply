@@ -24,3 +24,6 @@
 <script src="/js/index.js" type="text/javascript"></script>
 <script src="/js/table-editable.js"></script>
 <script src="/js/table-managed.js"></script>
+<%--<script src="/js/bootstrap-modal.js" type="text/javascript" ></script>--%>
+<%--<script src="/js/bootstrap-modalmanager.js" type="text/javascript" ></script>--%>
+

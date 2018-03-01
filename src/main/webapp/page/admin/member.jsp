@@ -16,65 +16,28 @@
 
     <div class="page-content">
 
-        <!-- BEGIN PAGE CONTAINER-->
-
         <div class="container-fluid">
 
-            <!-- BEGIN PAGE HEADER-->
-
             <div class="row-fluid">
-
                 <div class="span12">
-
-                    <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-
-                    <h3 class="page-title">
-
-                        Editable Tables
-                        <small>editable table samples</small>
-
-                    </h3>
-
                     <ul class="breadcrumb">
-
                         <li>
-
                             <i class="icon-home"></i>
-
-                            <a href="index.html">Home</a>
-
+                            <a href="#">功能</a>
                             <i class="icon-angle-right"></i>
-
                         </li>
-
                         <li>
-
-                            <a href="#">Data Tables</a>
-
+                            <a href="/admin/member/index">会员信息</a>
                             <i class="icon-angle-right"></i>
-
                         </li>
-
-                        <li><a href="#">Editable Tables</a></li>
-
+                        <li><a href="#">会员列表</a></li>
                     </ul>
-
-                    <!-- END PAGE TITLE & BREADCRUMB-->
-
                 </div>
-
             </div>
 
-            <!-- END PAGE HEADER-->
-
-            <!-- BEGIN PAGE CONTENT-->
-
             <div class="row-fluid">
 
                 <div class="span12">
-
-                    <!-- BEGIN EXAMPLE TABLE PORTLET-->
-
                     <div class="portlet box light-grey">
 
                         <div class="portlet-title">
@@ -108,7 +71,7 @@
                                         <td class="center hidden-480">${item.company}</td>
                                         <td >
                                             <a class="btn green" href="/admin/member/input?memberId=${item.id}">编辑</a>
-                                            <a class="btn red" href="/admin/member/delete?memberId=${item.id}">删除</a>
+                                            <a class="btn red" data-toggle = "modal" data-id= "${item.id}" data-target="#static">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -119,22 +82,28 @@
 
                     </div>
 
-                    <!-- END EXAMPLE TABLE PORTLET-->
-
                 </div>
 
             </div>
 
-            <!-- END PAGE CONTENT -->
-
         </div>
-
-        <!-- END PAGE CONTAINER-->
 
     </div>
 
-    <!-- END PAGE -->
+</div>
 
+
+<div id="static" class="modal hide fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-body">
+        <p>是否确定删除?</p>
+    </div>
+    <form id="modelDeleteForm" action="/admin/member/delete" method="post">
+        <input type="hidden" name="memberId">
+        <div class="modal-footer">
+            <button type="button" data-dismiss="modal" class="btn">否</button>
+            <button type="button" data-dismiss="modal" class="btn green" onclick="doDelete()">是</button>
+        </div>
+    </form>
 </div>
 
 
@@ -143,15 +112,17 @@
     jQuery(document).ready(function () {
         App.init();
         TableManaged.init();
-//        Index.initJQVMAP(); // init index page's custom scripts
-//        Index.initCalendar(); // init index page's custom scripts
-//        Index.initCharts(); // init index page's custom scripts
-//        Index.initChat();
-//        Index.initMiniCharts();
-//        Index.initDashboardDaterange();
-//        Index.initIntro();
+        $('#static').on('show.bs.modal', function (event) {
+            var btnThis = $(event.relatedTarget); //触发事件的按钮
+            var memberId = btnThis.data("id");
+            $(this).find('input[name=memberId]').val(memberId);
+        });
 
     });
+
+    function doDelete() {
+        $("#modelDeleteForm").submit();
+    }
 
 </script>
 </body>

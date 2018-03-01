@@ -1,5 +1,6 @@
 package com.supply.controller.admin;
 
+import com.supply.constant.CommonConstant;
 import com.supply.entity.Member;
 import com.supply.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class MemberManagerController {
 
     @RequestMapping("index")
     public ModelAndView index(){
-        List<Member> list = memberService.findAll();
+        List<Member> list = memberService.findAllForValid();
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/admin/member");
         modelAndView.addObject("list", list);
@@ -40,6 +41,15 @@ public class MemberManagerController {
     @RequestMapping("save")
     public String save(Member memer){
         memberService.update(memer);
-        return "forward:/admin/member/index";
+        return "redirect:/admin/member/index";
+    }
+
+    @RequestMapping("delete")
+    public String delete(Integer memberId){
+        Member member = new Member();
+        member.setId(memberId);
+        member.setStatus(CommonConstant.DELETE);
+        memberService.update(member);
+        return "redirect:/admin/member/index";
     }
 }

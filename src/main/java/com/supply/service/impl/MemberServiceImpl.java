@@ -2,6 +2,7 @@ package com.supply.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.google.common.collect.Maps;
+import com.supply.constant.CommonConstant;
 import com.supply.constant.ErrorCodeEnum;
 import com.supply.exception.BusinessException;
 import com.supply.mapper.MemberMapper;
@@ -35,6 +36,13 @@ public class MemberServiceImpl implements MemberService {
     @Override
     public List<Member> findAll() {
         return memberMapper.selectAll();
+    }
+
+    @Override
+    public List<Member> findAllForValid() {
+        Example example = new Example(Member.class);
+        example.createCriteria().andEqualTo("status", CommonConstant.VALID);
+        return memberMapper.selectByExample(example);
     }
 
     @Override

@@ -935,7 +935,7 @@ Page breadcrumb
   box-shadow: none;
   padding-right: 0px;
   padding-left: 8px;
-  margin-bottom: 25px;
+  margin: 15px 0px;
   border:0px !important;  
   background-color: #eee;
 }
