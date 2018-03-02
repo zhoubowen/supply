@@ -1,14 +1,15 @@
 package com.supply.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import org.apache.ibatis.type.Alias;
+
+import javax.persistence.*;
 import java.util.Date;
 
 /**
  * 招商供求
  * Created by bowen on 2018-02-27 12:49
  */
+@Entity
 @Table(name = "t_article")
 public class Article {
     @Id
@@ -27,10 +28,15 @@ public class Article {
     /**
      * memberId, 创建人
      */
+    @Transient
+    private Member member;
+
     @Column(name = "create_by")
     private Integer createBy;
+
     @Column(name = "create_time")
     private Date createTime;
+
     @Column(name = "update_time")
     private Date updateTime;
 
@@ -82,14 +88,6 @@ public class Article {
         this.type = type;
     }
 
-    public Integer getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(Integer createBy) {
-        this.createBy = createBy;
-    }
-
     public Date getCreateTime() {
         return createTime;
     }
@@ -106,6 +104,22 @@ public class Article {
         this.updateTime = updateTime;
     }
 
+    public Member getMember() {
+        return member;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    public Integer getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(Integer createBy) {
+        this.createBy = createBy;
+    }
+
     @Override
     public String toString() {
         return "Article{" +
@@ -115,6 +129,7 @@ public class Article {
                 ", content='" + content + '\'' +
                 ", status=" + status +
                 ", type=" + type +
+                ", member=" + member +
                 ", createBy=" + createBy +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +

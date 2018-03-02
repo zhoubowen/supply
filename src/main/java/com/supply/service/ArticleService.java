@@ -11,6 +11,8 @@ import java.util.List;
  */
 public interface ArticleService {
 
+    List<Article> findAllByExample(Integer type, Integer status);
+
     List<Article> findForPage(ArticleQueryParam articleQueryParam, PageUtil pageUtil);
 
     int add(Article article);

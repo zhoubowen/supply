@@ -29,7 +29,7 @@
         <!-- 给映射的类配置别名 -->
         <!-- 默认的别名是model类的首字母小写 -->
         <!-- 如：Member。别名为：com.supply.service.member -->
-        <property name="typeAliasesPackage" value="com.supply.entity" />
+        <!--<property name="typeAliasesPackage" value="com.supply.entity" />-->
     </bean>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

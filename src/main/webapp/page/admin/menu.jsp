@@ -12,8 +12,8 @@
                 <span class="selected"></span>
             </a>
             <ul class="sub-menu">
-                <li><a href="/admin/supply/index">招商信息</a></li>
-                <li><a href="/admin/supply/index">供求信息</a></li>
+                <li><a href="/admin/supply/index?type=1">招商信息</a></li>
+                <li><a href="/admin/supply/index?type=0">供求信息</a></li>
                 <li><a href="/admin/member/index">会员信息</a></li>
             </ul>
         </li>

@@ -1,6 +1,7 @@
 package com.supply.entity;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -8,6 +9,7 @@ import javax.persistence.Table;
  * 投标信息
  * Created by bowen on 2018-02-27 12:52
  */
+@Entity
 @Table(name = "t_bid")
 public class Bid {
     @Id
