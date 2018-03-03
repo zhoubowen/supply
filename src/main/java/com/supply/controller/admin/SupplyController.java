@@ -1,5 +1,6 @@
 package com.supply.controller.admin;
 
+import com.supply.constant.CommonConstant;
 import com.supply.entity.Article;
 import com.supply.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by bowen on 2018-02-28 21:48
@@ -32,8 +35,30 @@ public class SupplyController {
 
     @RequestMapping("input")
     public ModelAndView input(Integer id){
+        Article article = articleService.findById(id);
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("/admin/supplyInput");
+        modelAndView.addObject("article", article);
         return modelAndView;
+    }
+
+    @RequestMapping("save")
+    public String save(Article article, HttpServletRequest request){
+        if(Objects.isNull(article.getId())){
+            article.setCreateBy((Integer) request.getSession().getAttribute("memberId"));
+            articleService.add(article);
+        }else{
+            articleService.update(article);
+        }
+        return "redirect:/admin/supply/index?type=" + article.getType();
+    }
+
+    @RequestMapping("delete")
+    public String delete(Integer id, Integer type){
+        Article article = new Article();
+        article.setId(id);
+        article.setStatus(CommonConstant.DELETE);
+        articleService.update(article);
+        return "redirect:/admin/supply/index?type=" + type;
     }
 }

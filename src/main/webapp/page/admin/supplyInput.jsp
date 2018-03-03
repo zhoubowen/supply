@@ -29,10 +29,10 @@
                             <i class="icon-angle-right"></i>
                         </li>
                         <li>
-                            <a href="/admin/supply/index?type=0">供求信息</a>
+                            <a href="/admin/supply/index?type=${article.type}&status=${article.status}">${article.type == 0 ? '供求信息' : '招商信息'}</a>
                             <i class="icon-angle-right"></i>
                         </li>
-                        <li><a href="#">供求信息编辑</a></li>
+                        <li><a href="#">${article.type == 0 ? '供求信息' : '招商信息'}${article.status == 0 ? '审核' : '编辑'}</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,41 +42,45 @@
 
                     <div class="portlet box blue">
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-reorder"></i>供求基本信息</div>
+                            <div class="caption"><i class="icon-reorder"></i>${article.type == 0 ? '供求基本信息' : '招商基本信息'}${article.status == 0 ? '审核' : ''}</div>
                         </div>
                         <div class="portlet-body form">
 
-                            <form action="/admin/member/save" class="form-horizontal" method="post">
+                            <form action="/admin/supply/save" class="form-horizontal" method="post">
 
-                                <input type="hidden" name="id" value="${member.id}"/>
+                                <input type="hidden" name="id" value="${article.id}"/>
+                                <input type="hidden" name="type" value="${article.type}"/>
+                                <c:if test="${article.status == 0}">
+                                    <input type="hidden" name="status" value="1"/>
+                                </c:if>
 
                                 <div class="control-group">
                                     <label class="control-label">标题</label>
                                     <div class="controls">
-                                        <input type="text" name="account" class="span6 m-wrap" value="${member.account}">
-                                        <span class="help-inline">Some hint here</span>
+                                        <input type="text" name="title" class="span6 m-wrap" value="${article.title}">
                                     </div>
                                 </div>
 
-                                <div class="control-group">
-                                    <label class="control-label">主图</label>
-                                    <div class="controls">
-                                        <input type="text" name="name" class="span6 m-wrap" value="${member.name}">
-                                        <span class="help-inline">Some hint here</span>
-                                    </div>
-                                </div>
+                                <%--<div class="control-group">--%>
+                                    <%--<label class="control-label">主图</label>--%>
+                                    <%--<div class="controls">--%>
+                                        <%--<input id="pic-input" type="hidden" name="pic" value="${article.pic}">--%>
+                                        <%--<img id="pic-img" alt="" src="${article.pic}" width="100px" height="100px">--%>
+                                        <%--<input type="button" id="ke-upload-button" value="上传主图" />--%>
+                                    <%--</div>--%>
+                                <%--</div>--%>
 
                                 <div class="control-group">
-                                    <label class="control-label">所属公司</label>
+                                    <label class="control-label">内容</label>
                                     <div class="controls">
                                         <textarea id="editor_id" name="content" style="width:700px;height:300px;">
-                                        &lt;strong&gt;HTML内容&lt;/strong&gt;
+                                            ${article.content}
                                         </textarea>
                                     </div>
                                 </div>
 
                                 <div class="form-actions">
-                                    <button type="submit" class="btn blue">保存</button>
+                                    <button type="submit" class="btn blue">${article.status == 1 ? '保存' : '审核通过'}</button>
                                     <a class="btn" href="javascript:history.go(-1)">返回</a>
                                 </div>
 
@@ -110,6 +114,26 @@
             });
 
         });
+
+//        KindEditor.ready(function(K) {
+//            var uploadbutton = K.uploadbutton({
+//                button : K('#ke-upload-button')[0],
+//                url : '/upload/uploadForEditor',
+//                afterUpload : function(data) {
+//                    if (data.error === 0) {
+//                        $("#pic-img").attr("src", data.url);
+//                        $("#pic-input").val(data.url);
+//                    } else {
+//                        alert(data.message);
+//                    }
+//                }
+//            });
+//            uploadbutton.fileBox.change(function(e) {
+//                uploadbutton.submit();
+//            });
+//        });
+
+
     });
 
 </script>

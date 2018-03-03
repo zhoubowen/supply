@@ -57,7 +57,7 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public int update(Article article) {
-        return articleMapper.updateByPrimaryKey(article);
+        return articleMapper.updateByPrimaryKeySelective(article);
     }
 
     @Override

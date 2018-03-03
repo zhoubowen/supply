@@ -28,10 +28,10 @@
                             <i class="icon-angle-right"></i>
                         </li>
                         <li>
-                            <a href="/admin/supply/index?type=0">供求信息</a>
+                            <a href="/admin/supply/index?type=${param.type}">${param.type == 0 ? '供求信息' : '招商信息' }</a>
                             <i class="icon-angle-right"></i>
                         </li>
-                        <li><a href="#">供求信息列表</a></li>
+                        <li><a href="#">${param.type == 0 ? '供求信息' : '招商信息' }${param.status == 0 ? '待审核列表' : '列表'}</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                     <div class="portlet box light-grey">
 
                         <div class="portlet-title">
-                            <div class="caption"><i class="icon-globe"></i>供求信息列表</div>
+                            <div class="caption"><i class="icon-globe"></i>${param.type == 0 ? '供求信息' : '招商信息' }${param.status == 0 ? '待审核列表' : '列表'}</div>
                         </div>
 
                         <div class="portlet-body">
@@ -75,8 +75,8 @@
                                             <fmt:formatDate value="${item.updateTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
                                         </td>
                                         <td >
-                                            <a class="btn green" href="/admin/supply/input?id=${item.id}">编辑</a>
-                                            <a class="btn red" data-toggle = "modal" data-id= "${item.id}" data-target="#static">删除</a>
+                                            <a class="btn green" href="/admin/supply/input?id=${item.id}">${param.status == 0 ? '去审核' : '编辑'}</a>
+                                            <a class="btn red" data-toggle = "modal" data-id= "${item.id}"  data-target="#static">删除</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
@@ -102,8 +102,9 @@
     <div class="modal-body">
         <p>是否确定删除?</p>
     </div>
-    <form id="modelDeleteForm" action="/admin/member/delete" method="post">
-        <input type="hidden" name="memberId">
+    <form id="modelDeleteForm" action="/admin/supply/delete" method="post">
+        <input type="hidden" name="id">
+        <input type="hidden" name="type" value="${param.type}">
         <div class="modal-footer">
             <button type="button" data-dismiss="modal" class="btn">否</button>
             <button type="button" data-dismiss="modal" class="btn green" onclick="doDelete()">是</button>
@@ -119,8 +120,8 @@
         TableManaged.init();
         $('#static').on('show.bs.modal', function (event) {
             var btnThis = $(event.relatedTarget); //触发事件的按钮
-            var memberId = btnThis.data("id");
-            $(this).find('input[name=memberId]').val(memberId);
+            var articleId = btnThis.data("id");
+            $(this).find('input[name=id]').val(articleId);
         });
 
     });
