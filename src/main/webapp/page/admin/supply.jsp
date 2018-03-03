@@ -3,6 +3,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <jsp:include page="header.jsp" flush="true"/>
 
@@ -27,7 +28,7 @@
                             <i class="icon-angle-right"></i>
                         </li>
                         <li>
-                            <a href="/admin/supply/index">供求信息</a>
+                            <a href="/admin/supply/index?type=0">供求信息</a>
                             <i class="icon-angle-right"></i>
                         </li>
                         <li><a href="#">供求信息列表</a></li>
@@ -67,10 +68,14 @@
                                         <td><input type="checkbox" class="checkboxes" value="1" /></td>
                                         <td>${item.title}</td>
                                         <td class="hidden-480">${item.member.name}</td>
-                                        <td class="hidden-480">${item.createTime}</td>
-                                        <td class="center hidden-480">${item.updateTime}</td>
+                                        <td class="hidden-480">
+                                            <fmt:formatDate value="${item.createTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                        </td>
+                                        <td class="center hidden-480">
+                                            <fmt:formatDate value="${item.updateTime}" pattern="yyyy-MM-dd HH:mm:ss"/>
+                                        </td>
                                         <td >
-                                            <a class="btn green" href="/admin/member/input?memberId=${item.id}">编辑</a>
+                                            <a class="btn green" href="/admin/supply/input?id=${item.id}">编辑</a>
                                             <a class="btn red" data-toggle = "modal" data-id= "${item.id}" data-target="#static">删除</a>
                                         </td>
                                     </tr>

@@ -26,4 +26,6 @@
 <script src="/js/table-managed.js"></script>
 <%--<script src="/js/bootstrap-modal.js" type="text/javascript" ></script>--%>
 <%--<script src="/js/bootstrap-modalmanager.js" type="text/javascript" ></script>--%>
+<script charset="utf-8" src="/kindeditor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="/kindeditor/lang/zh-CN.js"></script>
 

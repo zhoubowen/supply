@@ -29,4 +29,11 @@ public class SupplyController {
         modelAndView.addObject("list", list);
         return modelAndView;
     }
+
+    @RequestMapping("input")
+    public ModelAndView input(Integer id){
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("/admin/supplyInput");
+        return modelAndView;
+    }
 }
