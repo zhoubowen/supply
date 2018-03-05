@@ -22,7 +22,7 @@
     <link href="/css/promo.css" rel="stylesheet" type="text/css"/>
     <link href="/css/animate.css" rel="stylesheet" type="text/css"/>
     <link href="/css/blog.css" rel="stylesheet" type="text/css"/>
-
+    <link href="/css/login.css" rel="stylesheet" type="text/css"/>
     <link rel="shortcut icon" href="/image/favicon.ico"/>
 
 

@@ -1,126 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<jsp:include page="header.jsp" flush="true"/>
-
+<%@include file="header.jsp"%>
 
 <body class="page-header-fixed page-full-width">
-
-<div class="header navbar navbar-inverse navbar-fixed-top">
-
-    <!-- BEGIN TOP NAVIGATION BAR -->
-
-    <div class="navbar-inner">
-
-        <div class="container">
-
-            <!-- BEGIN LOGO -->
-
-            <a class="brand" href="index.html">
-
-                <img src="/image/logo.png" alt="logo" />
-
-            </a>
-
-            <!-- END LOGO -->
-
-            <!-- BEGIN HORIZANTAL MENU -->
-
-            <div class="navbar hor-menu hidden-phone hidden-tablet">
-
-                <div class="navbar-inner">
-
-                    <ul class="nav">
-
-                        <li class="visible-phone visible-tablet">
-
-                            <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
-
-                            <form class="sidebar-search">
-
-                                <div class="input-box">
-
-                                    <a href="javascript:;" class="remove"></a>
-
-                                    <input type="text" placeholder="Search..." />
-
-                                    <input type="button" class="submit" value=" " />
-
-                                </div>
-
-                            </form>
-
-                            <!-- END RESPONSIVE QUICK SEARCH FORM -->
-
-                        </li>
-
-                        <li <c:if test="${type == 0}">class="active"</c:if>>
-                            <a href="/?type=0">
-                                <c:if test="${type == 0}">
-                                    <span class="selected"></span>
-                                </c:if>
-                                供求信息
-                            </a>
-                        </li>
-
-                        <li <c:if test="${type == 1}">class="active"</c:if>>
-                            <a  href="/?type=1">
-                                <c:if test="${type == 1}">
-                                    <span class="selected"></span>
-                                </c:if>
-                                招商投资信息
-                            </a>
-
-                        </li>
-
-                        <li>
-                            <a href="">会员信息</a>
-                        </li>
-                        <li>
-                            <a href="">个人信息管理</a>
-                        </li>
-
-                    </ul>
-
-                </div>
-
-            </div>
-
-            <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-                <img src="/image/menu-toggler.png" alt="" />
-            </a>
-
-
-            <ul class="nav pull-right">
-
-                <li class="dropdown user">
-
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-
-                        <img alt="" src="/image/avatar1_small.jpg" />
-
-                        <span class="username">Bob Nilson</span>
-
-                        <i class="icon-angle-down"></i>
-
-                    </a>
-
-                    <ul class="dropdown-menu">
-
-                        <li><a href="login.html"><i class="icon-key"></i> 注销</a></li>
-
-                    </ul>
-
-                </li>
-
-            </ul>
-
-        </div>
-
-    </div>
-
-</div>
-
+<%@include file="nav.jsp"%>
 
 <div class="page-container row-fluid">
 
@@ -207,7 +91,12 @@
 
 </div>
 
-<jsp:include page="footer.jsp"/>
+<%@include file="footer.jsp"%>
+<script>
+    jQuery(document).ready(function() {
+        App.init();
+    });
+</script>
 
 </body>
 </html>

@@ -42,5 +42,14 @@
     <mvc:resources location="/kindeditor/" mapping="/kindeditor/**"/>
     <mvc:resources location="/uploads/" mapping="/uploads/**"/>
 
+
+    <!--<mvc:interceptors>-->
+        <!--<mvc:interceptor>-->
+            <!--<mvc:mapping path="/**" />-->
+            <!--<mvc:exclude-mapping path="/admin/"/>-->
+            <!--<bean class="com.supply.interceptor.LoginInterceptor"/>-->
+        <!--</mvc:interceptor>-->
+    <!--</mvc:interceptors>-->
+
     <import resource="spring-mybatis.xml"/>
 </beans>
