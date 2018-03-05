@@ -25,7 +25,7 @@
 
                         <div class="span12 blog-article">
 
-                            <h2>${article.title}</h2>
+                            <h4>${article.title}</h4>
                             <div class="blog-img blog-tag-data">
 
                                 <ul class="unstyled inline">

@@ -10,11 +10,11 @@
 
             <!-- BEGIN LOGO -->
 
-            <a class="brand" href="index.html">
+            <div class="brand">
 
-                <img src="/image/logo.png" alt="logo" />
+                <%--<img src="/image/logo.png" alt="logo" />--%>
 
-            </a>
+            </div>
 
             <!-- END LOGO -->
 
@@ -45,11 +45,11 @@
 
                         </li>
 
-                        <li>
-                            <a href="">会员信息</a>
-                        </li>
-                        <li>
-                            <a href="">个人信息管理</a>
+                        <li <c:if test="${type != 0 && type != 1}">class="active"</c:if>>
+                            <c:if test="${type != 0 && type != 1}">
+                                <span class="selected"></span>
+                            </c:if>
+                            <a href="/member/info">会员信息管理</a>
                         </li>
 
                     </ul>
@@ -64,8 +64,20 @@
 
 
             <ul class="nav pull-right">
-                <li><a  href="/member/loginInput">登录</a></li>
-                <li><a href="/member/register">注册</a></li>
+                <c:choose>
+                    <c:when test="${sessionScope.memberId == null}">
+                        <li><a  href="/member/loginInput">登录</a></li>
+                        <li><a href="/member/register">注册</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li>
+                            <a href="#">
+                                ${sessionScope.name}
+                            </a>
+                        </li>
+                        <li><a href="/member/logout">注销</a></li>
+                    </c:otherwise>
+                </c:choose>
             </ul>
 
         </div>

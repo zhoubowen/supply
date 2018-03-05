@@ -64,13 +64,13 @@
 
     <form class="form-vertical login-form" action="/admin/login" method="post">
 
-        <h3 class="form-title">Login to your account</h3>
+        <h3 class="form-title">管理员登录</h3>
 
         <div class="alert alert-error hide">
 
             <button class="close" data-dismiss="alert"></button>
 
-            <span>Enter any username and password.</span>
+            <span>输入用户名密码.</span>
 
         </div>
 

@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+
+
 <%@include file="header.jsp"%>
 
 <body class="page-header-fixed page-full-width">
@@ -20,7 +23,7 @@
 
                         <div class="span12 blog-article">
 
-                            <h2><a href="/detail?id=${item.id}&type=${item.type}">${item.title}</a></h2>
+                            <h4><a href="/detail?id=${item.id}&type=${item.type}">${item.title}</a></h4>
                             <div class="blog-img blog-tag-data">
 
                                 <ul class="unstyled inline">
@@ -34,7 +37,7 @@
                             </div>
 
                             <p>
-                                ${item.content}
+                                    ${fn:substring(item.content, 0, 100)}
                             </p>
 
                             <a class="btn blue" href="/detail?id=${item.id}&type=${item.type}">

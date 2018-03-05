@@ -20,7 +20,7 @@
 
     <!-- BEGIN LOGIN FORM -->
 
-    <form class="form-vertical login-form" action="index.html" novalidate="novalidate" style="display: block;">
+    <form class="form-vertical login-form" action="/member/login" method="post" novalidate="novalidate" style="display: block;">
 
         <h3 class="form-title">登录</h3>
 
@@ -44,7 +44,7 @@
 
                     <i class="icon-user"></i>
 
-                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="Username" name="username">
+                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="Username" name="account">
 
                 </div>
 
@@ -95,7 +95,7 @@
 
     <!-- BEGIN REGISTRATION FORM -->
 
-    <form class="form-vertical register-form" action="index.html" novalidate="novalidate" style="display: none;">
+    <form class="form-vertical register-form"  method="post" action="/member/register" novalidate="novalidate" style="display: none;">
 
         <h3 class="">注册新用户</h3>
 
@@ -172,6 +172,25 @@
             </div>
 
         </div>
+
+        <div class="control-group error">
+
+            <label class="control-label visible-ie8 visible-ie9">所属公司名称</label>
+
+            <div class="controls">
+
+                <div class="input-icon left">
+
+                    <i class="icon-user-md"></i>
+
+                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="所属公司名称" name="company">
+
+                </div><label for="company" class="help-inline help-small no-left-padding">公司名称必填.</label>
+
+            </div>
+
+        </div>
+
 
         <div class="form-actions">
 

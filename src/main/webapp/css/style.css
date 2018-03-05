@@ -1297,6 +1297,13 @@ Portlets
   width: 11px;
 }
 
+.portlet-title .tools > a.add {
+  background-image:url(../image/glyphicons-halflings.png);
+  background-repeat: no-repeat;
+  background-position: -408px -96px;
+  width: 11px;
+}
+
 .portlet-title .tools > a.config {
   background-image:url(../image/portlet-config-icon.png);
   background-repeat: no-repeat;
@@ -1307,7 +1314,6 @@ Portlets
   background-image:url(../image/portlet-reload-icon.png);
   width: 13px;
 }
-
 .portlet-title .tools > a.expand {
   background-image:url(../image/portlet-expand-icon.png);
   width: 14px;
@@ -1506,6 +1512,11 @@ Box portlet
 .portlet.box .portlet-title .tools > a.remove, 
 .portlet.solid .portlet-title .tools > a.remove {
   background-image:url(../image/portlet-remove-icon-white.png);
+}
+.portlet.solid .portlet-title .tools > a.add {
+  background-image:url(../image/glyphicons-halflings.png);
+  background-repeat: no-repeat;
+  background-position: -408px -96px;
 }
 
 .portlet.box .portlet-title .tools > a.config,

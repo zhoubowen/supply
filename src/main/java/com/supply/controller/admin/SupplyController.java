@@ -44,7 +44,7 @@ public class SupplyController {
 
     @RequestMapping("save")
     public String save(Article article, HttpServletRequest request){
-        if(Objects.isNull(article.getId())){
+        if(null == article.getId()){
             article.setCreateBy((Integer) request.getSession().getAttribute("memberId"));
             articleService.add(article);
         }else{

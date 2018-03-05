@@ -48,7 +48,15 @@ public class ArticleServiceImpl implements ArticleService {
     public List<Article> findForPage(ArticleQueryParam articleQueryParam, PageUtil pageUtil) {
         PageHelper.startPage(pageUtil.getPage(), pageUtil.getSize());
         Example example = new Example(Article.class);
-        example.createCriteria().andEqualTo("type", articleQueryParam.getType()).andEqualTo("status", CommonConstant.VALID);
+        example.setOrderByClause("id DESC");
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("type", articleQueryParam.getType());
+        if(null != articleQueryParam.getMemberId()){
+            criteria.andEqualTo("createBy", articleQueryParam.getMemberId());
+            criteria.andNotEqualTo("status", CommonConstant.DELETE);
+        }else{
+            criteria.andEqualTo("status", CommonConstant.VALID);
+        }
         List<Article> list = articleMapper.selectByExample(example);
         if(!CollectionUtils.isEmpty(list)){
             for(Article article : list){
