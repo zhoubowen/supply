@@ -21,7 +21,7 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
     <util:properties id="config" location="classpath:jdbc.properties"/>
-
+    
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
@@ -30,6 +30,17 @@
         <!-- 默认的别名是model类的首字母小写 -->
         <!-- 如：Member。别名为：com.supply.service.member -->
         <!--<property name="typeAliasesPackage" value="com.supply.entity" />-->
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <property name="properties">
+                        <value>
+                            dialect=mysql
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
     </bean>
 
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">

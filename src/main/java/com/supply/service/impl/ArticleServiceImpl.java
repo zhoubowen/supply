@@ -2,6 +2,7 @@ package com.supply.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.google.common.collect.Maps;
+import com.supply.constant.CommonConstant;
 import com.supply.entity.Article;
 import com.supply.entity.Member;
 import com.supply.mapper.ArticleMapper;
@@ -47,7 +48,16 @@ public class ArticleServiceImpl implements ArticleService {
     public List<Article> findForPage(ArticleQueryParam articleQueryParam, PageUtil pageUtil) {
         PageHelper.startPage(pageUtil.getPage(), pageUtil.getSize());
         Example example = new Example(Article.class);
-        return articleMapper.selectByExample(example);
+        example.createCriteria().andEqualTo("type", articleQueryParam.getType()).andEqualTo("status", CommonConstant.VALID);
+        List<Article> list = articleMapper.selectByExample(example);
+        if(!CollectionUtils.isEmpty(list)){
+            for(Article article : list){
+                Member member = memberMapper.selectByPrimaryKey(article.getCreateBy());
+                article.setMember(member);
+            }
+        }
+        pageUtil.setRecordCount(articleMapper.selectCountByExample(example));
+        return list;
     }
 
     @Override
