@@ -22,17 +22,16 @@
         <div class="container-fluid">
             <div class="row-fluid">
                 <div class="span12">
-                    <h3 class="page-title">
-                        Dashboard
+                    <h4 class="page-title">
+                        管理面板
                         <small>statistics and more</small>
-                    </h3>
+                    </h4>
                     <ul class="breadcrumb">
                         <li>
                             <i class="icon-home"></i>
-                            <a href="index.html">Home</a>
                             <i class="icon-angle-right"></i>
                         </li>
-                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">面板</a></li>
                         <li class="pull-right no-text-shadow">
                             <div id="dashboard-report-range"
                                  class="dashboard-date-range tooltips no-tooltip-on-touch-device responsive"

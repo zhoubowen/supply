@@ -7,6 +7,7 @@ import com.supply.exception.BusinessException;
 import com.supply.param.ArticleQueryParam;
 import com.supply.service.ArticleService;
 import com.supply.service.MemberService;
+import com.supply.util.MD5Util;
 import com.supply.util.PageUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -77,11 +78,11 @@ public class MemberController {
     }
 
     @RequestMapping("register")
-    public ModelAndView register(Member member){
-        ModelAndView modelAndView = new ModelAndView();
+    public String register(Member member){
+        member.setPassword(MD5Util.EncoderByMd5(member.getPassword()));
+        member.setStatus(CommonConstant.VALID);
         memberService.add(member);
-        modelAndView.setViewName("login");
-        return modelAndView;
+        return "redirect:/member/loginInput";
     }
 
     @RequestMapping("supply")

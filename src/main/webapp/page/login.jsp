@@ -111,13 +111,32 @@
 
                     <i class="icon-user"></i>
 
-                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" name="username">
+                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" name="account">
 
                 </div><label for="username" class="help-inline help-small no-left-padding">用户名必填.</label>
 
             </div>
 
         </div>
+
+        <div class="control-group error">
+
+            <label class="control-label visible-ie8 visible-ie9">昵称</label>
+
+            <div class="controls">
+
+                <div class="input-icon left">
+
+                    <i class="icon-user"></i>
+
+                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="昵称" name="name">
+
+                </div><label for="name" class="help-inline help-small no-left-padding">昵称必填.</label>
+
+            </div>
+
+        </div>
+
 
         <div class="control-group error">
 

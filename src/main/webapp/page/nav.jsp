@@ -66,8 +66,7 @@
             <ul class="nav pull-right">
                 <c:choose>
                     <c:when test="${sessionScope.memberId == null}">
-                        <li><a  href="/member/loginInput">登录</a></li>
-                        <li><a href="/member/register">注册</a></li>
+                        <li><a  href="/member/loginInput">登录/注册</a></li>
                     </c:when>
                     <c:otherwise>
                         <li>
